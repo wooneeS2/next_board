@@ -1,0 +1,60 @@
+import { todayDate } from '@/utils/date';
+
+export const boardData = [
+    {
+        id: 1,
+        writer: '워니',
+        title: '제목입니다.',
+        mainText: '본문입니다.\n개행도 있어요',
+        editDate: '',
+        createDate: todayDate,
+    },
+    {
+        id: 2,
+        writer: '워니',
+        title: '제목입니다.',
+        mainText: '본문입니다.\n 개행도 있어요',
+        editDate: '',
+        createDate: todayDate,
+    },
+    {
+        id: 3,
+        writer: '워니',
+        title: '제목입니다.',
+        mainText: '본문입니다.\n 개행도 있어요',
+        editDate: '',
+        createDate: todayDate,
+    },
+    {
+        id: 4,
+        writer: '워니',
+        title: '제목입니다.',
+        mainText: '본문입니다.\n 개행도 있어요',
+        editDate: '',
+        createDate: todayDate,
+    },
+    {
+        id: 5,
+        writer: '워니',
+        title: '제목입니다.',
+        mainText: '본문입니다.\n 개행도 있어요',
+        editDate: '',
+        createDate: todayDate,
+    },
+    {
+        id: 6,
+        writer: '워니',
+        title: '제목입니다.',
+        mainText: '본문입니다.\n 개행도 있어요',
+        editDate: '',
+        createDate: todayDate,
+    },
+    {
+        id: 7,
+        writer: '워니',
+        title: '제목입니다.',
+        mainText: '본문입니다.\n 개행도 있어요',
+        editDate: '',
+        createDate: todayDate,
+    },
+];
