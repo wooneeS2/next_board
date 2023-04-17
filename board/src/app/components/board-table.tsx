@@ -1,9 +1,27 @@
 'use client';
-import { boardData } from '@/\bdata/board-data';
+import { boardType } from '@/\bdata/board-data';
 import { useRouter } from 'next/navigation';
+import { getBoardListData } from './api/connect-api';
+import { useQuery } from 'react-query';
+import { useEffect, useState } from 'react';
 
 export const BoardTable = () => {
     const router = useRouter();
+    const response = useQuery(['getBoardListData'], getBoardListData);
+    const [boardListData, setBoardListData] = useState<boardType[]>([]);
+
+    useEffect(() => {
+        setBoardListData(response.data);
+    }, [response.isLoading]);
+
+    if (response.isLoading || !boardListData) {
+        return (
+            <>
+                <p>Loading....</p>
+            </>
+        );
+    }
+
     return (
         <>
             <table>
@@ -19,7 +37,7 @@ export const BoardTable = () => {
                 </thead>
 
                 <tbody>
-                    {boardData.map(data => {
+                    {boardListData.map((data: boardType) => {
                         return (
                             <tr
                                 key={data.id}
