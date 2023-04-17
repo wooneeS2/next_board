@@ -1,9 +1,22 @@
+'use client';
+import { useRouter } from 'next/navigation';
 import { BoardTable } from './components/board-table';
 
 export default function Home() {
+    const router = useRouter();
     return (
         <>
-            <div>게시판</div>
+            <div>
+                <p>게시판</p>
+                <button
+                    onClick={() => {
+                        router.push('/writing');
+                    }}
+                >
+                    글쓰기
+                </button>
+            </div>
+
             <BoardTable />
         </>
     );
