@@ -1,11 +1,18 @@
-'use client';
-import { boardData } from '@/\bdata/board-data';
-import { useRouter, useParams } from 'next/navigation';
+import { boardData } from '@/data/board-data';
+import { useRouter } from 'next/router';
 
 const MainArticle = () => {
-    const params = useParams();
+    //TODO 리액트쿼리 처리해주기
+    //TODO 데이터 없을 때 처리해주기
     const router = useRouter();
-    const articleId: number = Number(params.articleId);
+
+    const articleParams = router.query.articleId;
+    const articleId: number = Number(articleParams) - 1;
+
+    if (!articleParams) {
+        return <>게시물이 존재하지 않습니다.</>;
+    }
+
     return (
         <>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
