@@ -1,4 +1,3 @@
-'use client';
 import { useMutation, useQueryClient } from 'react-query';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -27,7 +26,6 @@ const Writing = () => {
             <form
                 onSubmit={e => {
                     e.preventDefault();
-                    console.log(article);
                     saveMutation.mutate(article);
                 }}
                 style={{ display: 'flex', flexDirection: 'column' }}
@@ -43,7 +41,6 @@ const Writing = () => {
                     }}
                 ></input>
                 <textarea
-                    name="Text1"
                     cols={40}
                     rows={5}
                     placeholder="본문을 입력해주세요."

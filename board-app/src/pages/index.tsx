@@ -1,4 +1,3 @@
-'use client';
 import { BoardTable } from '@/components/board-table';
 import { useRouter } from 'next/navigation';
 
