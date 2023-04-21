@@ -18,7 +18,7 @@ export function handler(req: NextApiRequest, res: NextApiResponse) {
     );
 
     if (index === -1) {
-        res.status(404).json({ message: 'Article not found' });
+        res.status(405).json({ message: 'Article not found' });
     } else {
         const article = boardData[index];
         res.status(200).json(article);

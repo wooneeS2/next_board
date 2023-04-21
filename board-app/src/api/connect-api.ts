@@ -1,10 +1,19 @@
+import { BoardType } from '@/data/board-data';
 import { Article } from '@/pages/writing';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 //TODO 리턴타입 지정해주기
 //low level에서 지정해주기
-export const getBoardListData = async () => {
-    const response = await axios.get('/api/api');
+
+type getBoardType = {
+    boardLength: number;
+    boardData: BoardType[];
+};
+
+export const getBoardListData = async (
+    currentPage: number
+): Promise<getBoardType> => {
+    const response = await axios.get(`/api/api?pageno=${currentPage}`);
     return response.data;
 };
 

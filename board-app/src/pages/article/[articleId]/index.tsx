@@ -51,10 +51,7 @@ const MainArticle = () => {
                 <p>{`${articleData.createDate}(${articleData.editDate})`}</p>
                 <button
                     onClick={() => {
-                        router.push({
-                            pathname: `/article/edit`,
-                            query: { articleId: articleData.id },
-                        });
+                        router.push(`/article/${articleData.id}/edit`);
                     }}
                 >
                     수정

@@ -3,15 +3,16 @@ import { BoardType } from '@/data/board-data';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import { Article } from '../writing';
+import { Article } from '../../writing';
 
 export interface PutArticleParams {
-    updatedArticle: Article; //updatedArticle 명을 가진 Article 타입의 파라미터
+    updatedArticle: Article;
     articleId: number;
 }
 
 const EditArticle = () => {
     const router = useRouter();
+    console.log(router.query);
 
     const articleId = Number(router.query.articleId);
 

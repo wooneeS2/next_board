@@ -8,7 +8,13 @@ type PutParams = {
 };
 
 const getBoardListData = (req: NextApiRequest, res: NextApiResponse) => {
-    return res.status(200).json(boardData);
+    const { pageno } = req.query;
+    const currentPage = Number(pageno);
+    const newBoardData = {
+        boardLength: boardData.length,
+        boardData: boardData.slice((currentPage - 1) * 10, currentPage * 10),
+    };
+    return res.status(200).json(newBoardData);
 };
 
 const postBoadList = (req: NextApiRequest, res: NextApiResponse) => {
@@ -57,7 +63,7 @@ const deleteArticle = (req: NextApiRequest, res: NextApiResponse) => {
     }
 };
 
-export function handler(req: NextApiRequest, res: NextApiResponse) {
+function handler(req: NextApiRequest, res: NextApiResponse) {
     const { method } = req;
     if (method === 'GET') {
         getBoardListData(req, res);
@@ -71,9 +77,10 @@ export function handler(req: NextApiRequest, res: NextApiResponse) {
     } else if (method === 'DELETE') {
         deleteArticle(req, res);
         return;
+    } else {
+        res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
+        res.status(405).end(`Method ${method} Not Allowed`);
     }
-    res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
-    res.status(405).end(`Method ${method} Not Allowed`);
 }
 
 export default handler;

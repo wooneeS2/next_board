@@ -19,6 +19,9 @@ const Writing = () => {
         onSuccess: () => {
             router.push('/');
         },
+        onError: () => {
+            alert('글 작성에 실패했습니다.');
+        },
     });
 
     return (
@@ -26,7 +29,10 @@ const Writing = () => {
             <form
                 onSubmit={e => {
                     e.preventDefault();
-                    saveMutation.mutate(article);
+                    if (!saveMutation.isLoading) {
+                        console.log('###');
+                        saveMutation.mutate(article);
+                    }
                 }}
                 style={{ display: 'flex', flexDirection: 'column' }}
             >
@@ -51,7 +57,9 @@ const Writing = () => {
                         }));
                     }}
                 ></textarea>
-                <button type="submit">저장</button>
+                <button type="submit" disabled={saveMutation.isLoading}>
+                    저장
+                </button>
             </form>
         </>
     );
