@@ -1,12 +1,11 @@
 import { getArticleData, putArticleData } from '@/api/connect-api';
-import { BoardType } from '@/data/board-data';
+import { ArticleType, BoardType } from '@/type/types';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import { Article } from '../../writing';
 
 export interface PutArticleParams {
-    updatedArticle: Article;
+    updatedArticle: ArticleType;
     articleId: number;
 }
 
@@ -24,8 +23,8 @@ const EditArticle = () => {
         getArticleData(queryKey[1] as number)
     );
 
-    const articleData: BoardType = response.data;
-    const [updatedArticle, setUpdatedArticle] = useState<Article>({
+    const articleData = response.data as BoardType;
+    const [updatedArticle, setUpdatedArticle] = useState<ArticleType>({
         title: articleData.title,
         mainText: articleData.mainText,
     });

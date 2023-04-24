@@ -1,23 +1,21 @@
-import { BoardType } from '@/data/board-data';
-import { Article } from '@/pages/writing';
+import {
+    ArticleType,
+    BoardType,
+    CommentType,
+    GetBoardType,
+} from '@/type/types';
 import axios, { AxiosResponse } from 'axios';
-
-//TODO 리턴타입 지정해주기
-//low level에서 지정해주기
-
-type getBoardType = {
-    boardLength: number;
-    boardData: BoardType[];
-};
 
 export const getBoardListData = async (
     currentPage: number
-): Promise<getBoardType> => {
+): Promise<GetBoardType> => {
     const response = await axios.get(`/api/api?pageno=${currentPage}`);
     return response.data;
 };
 
-export const postBoardData = async (article: Article) => {
+export const postBoardData = async (
+    article: ArticleType
+): Promise<BoardType[]> => {
     const response = await axios.post('/api/api', {
         article,
     });
@@ -25,7 +23,10 @@ export const postBoardData = async (article: Article) => {
     return response.data;
 };
 
-export const putArticleData = async (article: Article, articleId: number) => {
+export const putArticleData = async (
+    article: ArticleType,
+    articleId: number
+): Promise<BoardType[]> => {
     const response = await axios.put('/api/api', {
         article,
         articleId,
@@ -33,12 +34,25 @@ export const putArticleData = async (article: Article, articleId: number) => {
     return response.data;
 };
 
-export const deleteArticleData = async (articleId: number) => {
+export const deleteArticleData = async (
+    articleId: number
+): Promise<BoardType[]> => {
     const response = await axios.delete('/api/api', { data: { articleId } });
     return response.data;
 };
 
-export const getArticleData = async (articleId: number) => {
+export const getArticleData = async (articleId: number): Promise<BoardType> => {
     const response = await axios.get(`/api/article-api?articleId=${articleId}`);
+    return response.data;
+};
+
+export const postComment = async (
+    comment: CommentType,
+    articleId: number
+): Promise<BoardType[]> => {
+    const response = await axios.post('/api/comment-api', {
+        comment,
+        articleId,
+    });
     return response.data;
 };

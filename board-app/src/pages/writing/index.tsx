@@ -1,15 +1,11 @@
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation } from 'react-query';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { postBoardData } from '@/api/connect-api';
-
-export type Article = {
-    title: string;
-    mainText: string;
-};
+import { ArticleType } from '@/type/types';
 
 const Writing = () => {
-    const [article, setArticle] = useState<Article>({
+    const [article, setArticle] = useState<ArticleType>({
         title: '',
         mainText: '',
     });
@@ -30,7 +26,6 @@ const Writing = () => {
                 onSubmit={e => {
                     e.preventDefault();
                     if (!saveMutation.isLoading) {
-                        console.log('###');
                         saveMutation.mutate(article);
                     }
                 }}

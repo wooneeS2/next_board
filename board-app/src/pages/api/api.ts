@@ -1,11 +1,6 @@
-import { BoardType, boardData } from '@/data/board-data';
+import { boardData } from '@/data/board-data';
+import { PutBoardType } from '@/type/types';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Article } from '../writing';
-
-type PutParams = {
-    article: Article;
-    articleId: number;
-};
 
 const getBoardListData = (req: NextApiRequest, res: NextApiResponse) => {
     const { pageno } = req.query;
@@ -26,12 +21,13 @@ const postBoadList = (req: NextApiRequest, res: NextApiResponse) => {
         mainText: article.mainText,
         createDate: '2022-09-09',
         editDate: '',
+        comments: [],
     });
     return res.status(200).json(boardData);
 };
 
 const putArticle = (req: NextApiRequest, res: NextApiResponse) => {
-    const updatedBoard: PutParams = req.body;
+    const updatedBoard: PutBoardType = req.body;
     const indexToUpdate: number = boardData.findIndex(
         board => board.id === updatedBoard.articleId
     );
@@ -45,6 +41,7 @@ const putArticle = (req: NextApiRequest, res: NextApiResponse) => {
             mainText: updatedBoard.article.mainText,
             createDate: boardData[indexToUpdate].createDate,
             editDate: '2022-09-09',
+            comments: boardData[indexToUpdate].comments,
         };
         return res.status(200).json(boardData);
     }

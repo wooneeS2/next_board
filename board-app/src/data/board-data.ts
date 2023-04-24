@@ -1,13 +1,6 @@
-export type BoardType = {
-    id: number;
-    writer: string;
-    title: string;
-    mainText: string;
-    editDate: string;
-    createDate: string;
-};
+import { BoardType } from '@/type/types';
 
-export const boardData = [
+export const boardData: BoardType[] = [
     {
         id: 1,
         writer: '워니',
@@ -15,6 +8,13 @@ export const boardData = [
         mainText: '본문입니다.\n개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [
+            {
+                id: 1,
+                writer: '워니',
+                text: '댓글입니다.',
+            },
+        ],
     },
     {
         id: 2,
@@ -23,6 +23,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 3,
@@ -31,6 +32,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 4,
@@ -39,6 +41,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 5,
@@ -47,6 +50,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 6,
@@ -55,6 +59,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 7,
@@ -63,6 +68,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 8,
@@ -71,6 +77,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 9,
@@ -79,6 +86,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 10,
@@ -87,6 +95,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 11,
@@ -95,6 +104,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 12,
@@ -103,6 +113,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 13,
@@ -111,6 +122,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 14,
@@ -119,6 +131,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 15,
@@ -127,6 +140,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 16,
@@ -135,6 +149,7 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
     {
         id: 17,
@@ -143,5 +158,6 @@ export const boardData = [
         mainText: '본문입니다.\n 개행도 있어요',
         editDate: '',
         createDate: '2023-04-02',
+        comments: [],
     },
 ];
